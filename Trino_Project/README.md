@@ -127,3 +127,11 @@ gcloud dataproc jobs submit hive \
     --execute "
         INSERT OVERWRITE TABLE chicago_taxi_trips_parquet
         SELECT * FROM chicago_taxi_trips_csv;"
+
+
+gcloud dataproc jobs submit hive \
+    --cluster trino-cluster \
+    --region=${REGION} \
+    --execute "SELECT COUNT(*) FROM chicago_taxi_trips_parquet;"
+
+    
