@@ -1,12 +1,12 @@
 Trino-dataset
 
 
-CREATE OR REPLACE TABLE `society-etc-310720.stockprices.taxi_trips` AS 
+CREATE OR REPLACE TABLE `project.stockprices.taxi_trips` AS 
 (
   SELECT * FROM `bigquery-public-data.chicago_taxi_trips.taxi_trips` LIMIT 10000000
 )
 
-export PROJECT=society-etc-310720
+export PROJECT=project
 export WORKERS=3
 export REGION=us-central1
 export ZONE=us-central1-a
