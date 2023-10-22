@@ -9,8 +9,20 @@ CREATE OR REPLACE TABLE `society-etc-310720.stockprices.taxi_trips` AS
 export PROJECT=society-etc-310720
 export WORKERS=3
 export REGION=us-central1
+export ZONE=us-central1-a
 export BUCKET_NAME=Trino-dataset
 
 
 https://cloud.google.com/dataproc/docs/tutorials/trino-dataproc?hl=en
 
+zone : us-central1-a
+
+gcloud beta dataproc clusters create trino-cluster \
+    --project=${PROJECT} \
+    --region=${REGION} \
+    --zone=${ZONE} \
+    --num-workers=${WORKERS} \
+    --scopes=cloud-platform \
+    --optional-components=TRINO \
+    --image-version=2.1  \
+    --enable-component-gateway
